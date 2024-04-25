@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ระบบบันทึกข้อมูลพนักงาน</title> 
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <!-- ส่วนที่แสดงออกไปในหน้าจอของ Browser -->
+  <a href="user.html">Go to user Management</a>
+
+  <div class="container">
+    <h1>ระบบบันทึกข้อมูลพนักงาน</h1>
+    <hr>
+    <form action="ีuser" method="POST"> <!-- ตรงนี้เป็น URL ของไฟล์ที่จะรับข้อมูล -->
+      <h2>ข้อมูลพนักงาน</h2>
+      <label for="employee_gender">เพศ:</label>
+      <div class="flex">
+        <input name="gender" type="radio" value="ชาย"> ชาย
+        <input name="gender" type="radio" value="หญิง"> หญิง
+      </div>
+      <label for="employee_name">ชื่อ:</label>
+      <input type="text" id="employee_name" name="employee_name" required>
+      <label for="employee_lastname">นามสกุล:</label>
+      <input type="text" id="employee_lastname" name="employee_lastname" required>
+      <label for="employee_address">ที่อยู่:</label>
+      <input type="text" id="employee_address" name="employee_address" required>
+      <label for="employee_phone">เบอร์โทร:</label>
+      <input type="text" id="employee_phone" name="employee_phone" required>
+      <label for="employee_position">ตำแหน่ง:</label>
+      <input type="text" id="employee_position" name="employee_position" required>
+      <h2>ข้อมูลการทำงาน</h2>
+      <label for="work_time_in">เวลาเข้า:</label>
+      <input type="datetime-local" id="work_time_in" name="work_time_in" required>
+      <label for="work_time_out">เวลาออก:</label>
+      <input type="datetime-local" id="work_time_out" name="work_time_out" required>
+      <label for="work_hours">ชั่วโมงการทำงาน:</label>
+      <input type="number" id="work_hours" name="work_hours" min="0" required><br><br>
+      <label for="work_details">รายละเอียดการทำงาน:</label>
+      <textarea id="work_details" name="work_details" rows="3" required></textarea>
+      <h2>ข้อมูลการลา</h2>
+      <label for="leave_type">ประเภทการลา:</label>
+      <select id="leave_type" name="leave_type" required>
+        <option value="ลาป่วย">ลาป่วย</option>
+        <option value="ลากิจ">ลากิจ</option>
+        <option value="ลาพักร้อน">ลาพักร้อน</option>
+        <option value="ลาคลอดบุตร">ลาคลอดบุตร</option>
+      </select>
+      <label for="leave_date_start">วันที่เริ่มลา:</label>
+      <input type="date" id="leave_date_start" name="leave_date_start" required>
+      <label for="leave_date_end">ถึงวันที่ลา:</label>
+      <input type="date" id="leave_date_end" name="leave_date_end" required>
+      <label for="leave_reason">หมายเหตุ:</label>
+      <textarea id="leave_reason" name="leave_reason" required></textarea>
+      <div id="message" class="message"></div>
+      <div class="center">
+        <button type="submit" class="button">ส่งข้อมูล</button>
+      </div>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

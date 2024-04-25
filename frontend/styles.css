@@ -1,0 +1,97 @@
+/* สิ่งที่อยู่ตรงนี้ จะมีไว้แค่ให้ dev อ่าน */
+/* 1. แต่งใคร ? (id, class, DOM) 2. แต่งอะไร ? */
+/* ส่วนนี้เป็นการนิยามฟอนต์และกำหนดที่อยู่ของไฟล์ฟอนต์ */
+@font-face {
+  font-family: "kanit"; /* ชื่อฟอนต์ */
+  src: url("./Kanit/Kanit-Regular.ttf"); /* ที่อยู่ของไฟล์ฟอนต์ */
+}
+
+/* ส่วนนี้เป็นการกำหนดรูปแบบฟอนต์และสีพื้นหลังของ body */
+body {
+  font-family: "kanit"; /* ใช้ฟอนต์ที่กำหนดมา */
+  background: linear-gradient(120deg, #2980b9, #8e44ad); /* สีพื้นหลังเป็น linear gradient */
+}
+
+/* ส่วนนี้เป็นการกำหนดรูปแบบของ container ที่มีขอบโค้ง */
+.container {
+  width: 100%; /* กำหนดความกว้างเต็มหน้าจอ */
+  max-width: 640px; /* กำหนดความกว้างสูงสุด */
+  margin-left: auto; /* จัดตำแหน่งชิดขอบซ้าย */
+  margin-right: auto; /* จัดตำแหน่งชิดขอบขวา */
+  background-color: rgb(255, 255, 255); /* สีพื้นหลัง */
+  background-size: cover; /* ปรับขนาดรูปพื้นหลังให้เต็ม container */
+  padding: 20px; /* กำหนดระยะห่างขอบ container */
+  border-radius: 25px; /* กำหนดขอบโค้ง */
+}
+
+/* ส่วนนี้เป็นการกำหนดรูปแบบของ header */
+.header {
+  font-size: 30px; /* ขนาดตัวอักษร */
+  text-align: center; /* จัดข้อความตรงกลาง */
+  font-family: "kanit"; /* ใช้ฟอนต์ที่กำหนดมาข้างต้น */
+  border: 2px solid #fff8f8; /* สีขอบ */
+  width: 100%; /* กำหนดความกว้างเต็มหน้าจอ */
+  height: 50px; /* ความสูงของ header */
+  background-color: #ffffff; /* สีพื้นหลัง */
+}
+
+/* ส่วนนี้เป็นการกำหนดรูปแบบของ form ใน header */
+.header-form {
+  width: 140px; /* กำหนดความกว้างของ form */
+}
+
+/* ส่วนนี้เป็นการกำหนดรูปแบบของ input ใน form */
+input.form,
+textarea {
+  border: 1px solid #270155; /* สีเส้นขอบ */
+  width: 80%; /* กำหนดความกว้างของ  */
+  border-radius: 25px; /* กำหนดขอบโค้ง */
+  box-sizing: border-box; /* ทำให้ padding และ border อยู่ในขอบโค้ง */
+  box-shadow: 0px 0px 5px #ffffff; /* เพิ่มเงาบางๆ */
+  padding: 10px; /* กำหนดระยะห่างภายใน input */
+}
+
+/* ส่วนนี้เป็นการกำหนดรูปแบบของปุ่ม */
+.button {
+  font-family: "kanit"; /* ใช้ฟอนต์ที่กำหนดมาข้างต้น */
+  border: 0; /* ไม่มีเส้นขอบ */
+  width: 50%; /* กำหนดความกว้างของปุ่ม */
+  height: 40px; /* ความสูงของปุ่ม */
+  background-color: #6a74dd; /* สีพื้นหลังปุ่ม */
+  color: hsl(0, 0%, 0%); /* สีข้อความ */
+  border-radius: 25px; /* กำหนดขอบโค้ง */
+  box-sizing: border-box; /* ทำให้ padding และ border อยู่ในขอบโค้ง */
+  box-shadow: #69138f; /* เพิ่มเงา */
+}
+
+/* ส่วนนี้เป็นการกำหนดรูปแบบของ message box */
+.message {
+  background-color: hsl(250, 100%, 57%); /* สีพื้นหลังข้อความ */
+  padding: 10px; /* กำหนดระยะห่างภายใน message box */
+  display: none; /* ซ่อน message box เริ่มต้น */
+}
+
+/* ส่วนนี้เป็นการกำหนดรูปแบบของ message box ที่เป็นสถานะ success */
+.message.success {
+  background-color: #fafff7; /* สีพื้นหลัง message box สถานะ success */
+  display: block; /* แสดง message box สถานะ success */
+}
+
+/* ส่วนนี้เป็นการกำหนดรูปแบบของ message box ที่เป็นสถานะ danger */
+.message.danger {
+  background-color: #1c0367; /* สีพื้นหลัง message box สถานะ danger */
+  display: block; /* แสดง message box สถานะ danger */
+}
+
+/* ส่วนนี้เป็น media query เพื่อปรับขนาดหน้าจอเมื่ออยู่ในโหมด responsive */
+@media screen and (max-width: 768px) {
+  .flex {
+    flex-direction: column; /* เรียงแนวตั้งเมื่ออยู่ในหน้าจอขนาดเล็ก */
+  }
+  .header {
+    font-size: 24px; /* ลดขนาดตัวอักษรของ header */
+  }
+  .button {
+    width: 100%; /* กำหนดความกว้างหน้าจอ */
+  }
+}
