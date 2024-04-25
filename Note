@@ -1,0 +1,46 @@
+cd server ก่อน 
+ต้องการกลับ cd..
+ลง
+npm init กด enter ไปเรื่อยๆ จะได้ไฟล์ package.json
+npm install จะได้ package-lock.json
+npm install nodemon ใช้งาน npx nodemon .\ตามด้วยไฟล์.js
+npm install -g nodemon ก็ได้
+
+npm i body-parser
+npm i express 
+npm i cors
+docker pull phpmyadmin/phpmyadmin
+docker pull mysql2
+
+docker network ls เเสดง networkที่มี
+docker network create ตามด้วยชื่อ 
+
+docker ps คือ รายการ cotainer ที่เปิด
+docker images แสดงรายการของ images ทั้งหมดที่อยู่ในระบบ Docker
+เมื่อ ต้องการปิด docker images 
+-เช็ค IMAGE ID โดยการ docker images เพื่อแสดงรายการของ images
+-docker stop (ตามด้วย IMAGE ID)
+ต้องการลบ
+-docker rm (ตามด้วย IMAGE ID)
+
+docker run --name mysql --network weblab821 -p 8889:3306 -e MYSQL_ROOT_PASSWORD=1111 -e MYSQL_DATABASE=webdb -e MYSQL_USER=wordpress -e MYSQL_PASSWORD=wordpress -d mysql:5.7
+docker run --name pma --network weblab821 -p 8888:80 -e PMA_ARBITRARY=1 -d phpmyadmin/phpmyadmin
+-p 8889:3306: กำหนดพอร์ตที่ container phpmyadmin
+-e PMA_ARBITRARY=1: ตั้งค่า environment variable PMA_ARBITRARY เป็น 1 
+
+--name = ชื่อserver
+--network ตามด้วย ชื่อnetworkที่สร้าง
+-p 8889:3306: กำหนดพอร์ตที่ container MySQL
+
+username = root
+pass =1111
+-e MYSQL_ROOT_PASSWORD=1111: กำหนดรหัสผ่านของผู้ใช้ root ใน MySQL เป็น "1111"
+-e MYSQL_DATABASE=webdb: สร้างฐานข้อมูลชื่อ "webdb" เมื่อ MySQL container ถูกสร้างขึ้น
+-e MYSQL_USER=wordpress: สร้างผู้ใช้ใน MySQL ชื่อ "wordpress"
+-e MYSQL_PASSWORD=wordpress: กำหนดรหัสผ่านของผู้ใช้ "wordpress" ใน MySQL เป็น "wordpress"
+-d: ระบุว่า container นี้จะทำงานในโหมดแบ็กกราวด์ (daemon mode)
+
+mysql:5.7: ระบุ image ที่จะใช้สร้าง container ซึ่งในที่นี้คือ MySQL รุ่น 5.7
+
+docker-compose up -d
+docker-compose down
